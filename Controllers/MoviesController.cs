@@ -6,7 +6,7 @@ namespace eTickets.Controllers
     {
         public IActionResult Index()
         {
-            Console.WriteLine("branch");
+            Console.WriteLine("Commit2");
             return View();
         }
     }
