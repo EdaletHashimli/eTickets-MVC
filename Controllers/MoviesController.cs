@@ -6,7 +6,7 @@ namespace eTickets.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View("day4");
         }
     }
 }
