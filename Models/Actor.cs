@@ -16,7 +16,7 @@ namespace eTickets.Models
         [Display(Name = "Biography")]
         [Required(ErrorMessage = "Biography required")]
         public string Bio { get; set; }
-        public List<Actor_Movie> Actor_Movies { get; set;}
+        public List<Actor_Movie>? Actor_Movies { get; set;}
 
     }
 }
