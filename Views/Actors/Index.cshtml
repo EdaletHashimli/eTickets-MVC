@@ -27,10 +27,10 @@
                         <td class="align-middle">
                             @Html.DisplayFor(modelItem => item.Bio)
                         </td>
-                        <td class="align-middle" style="width:300px">
-                            <a class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i>Edit</a> |
-                            <a class="btn btn-outline-info"><i class="bi bi-eye"></i>Details</a> |
-                            <a class="btn btn-danger"><i class="bi bi-trash"></i>Delete Actor</a>
+                        <td class="align-middle" style="width:330px">
+                            <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.ActorId"><i class="bi bi-pencil-square"></i>Edit</a> |
+                            <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.ActorId"><i class="bi bi-eye"></i>Details</a> |
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ActorId"><i class="bi bi-trash"></i>Delete Actor</a>
                         </td>
                       </tr>          
                 }

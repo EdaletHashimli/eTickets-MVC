@@ -15,7 +15,7 @@ namespace eTickets.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAll();
+            var data = await _service.GetAllAsync();
             return View(data);
         }
         // Get: Actors/Create
@@ -31,8 +31,45 @@ namespace eTickets.Controllers
 
                 return View(actor);
             }
-            _service.Add(actor);
+            await _service.AddAsync(actor);
             return RedirectToAction(nameof(Index) );
         }
+
+        //Get:Actors/Details/ById
+        public async Task<IActionResult> Details(int id)
+        {
+            var actorDetails = await _service.GetByIdAsync(id);
+            if (actorDetails == null) return View("Empty");
+            return View(actorDetails);
+        }
+
+        //Get: Actors/Edit/ById
+        public async Task<IActionResult> Edit(int id)
+        {
+            var actorDetails = await _service.GetByIdAsync(id);
+            if (actorDetails == null) return View("Empty");
+            return View(actorDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id,[Bind("ActorId,FullName,ProfilePictureURL,Bio")] Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            await _service.UpdateAsync(id,actor);
+            return RedirectToAction(nameof(Index));
+        }
+        //Get: Actors/Delete/ByID
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteConfirmed(Actor actor)
+        {
+            
+            await _service.DeleteAsync(actor);
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
