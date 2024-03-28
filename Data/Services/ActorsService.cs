@@ -18,9 +18,14 @@ namespace eTickets.Data.Services
         }
         public async Task DeleteAsync(Actor actor)
         {
-            _context.Actors.Remove(actor);
-            await _context.SaveChangesAsync();
+            var _actor = await _context.Actors.FindAsync(actor.ActorId);
+            if (_actor != null)
+            {
+                _context.Actors.Remove(_actor); // _actor dəyişənini istifadə edin, actor dəyişənini deyil
+                await _context.SaveChangesAsync();
+            }
         }
+
 
         public async Task<IEnumerable<Actor>> GetAllAsync()
         {

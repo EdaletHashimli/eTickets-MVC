@@ -66,7 +66,6 @@ namespace eTickets.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteConfirmed(Actor actor)
         {
-            
             await _service.DeleteAsync(actor);
             return RedirectToAction(nameof(Index));
         }
