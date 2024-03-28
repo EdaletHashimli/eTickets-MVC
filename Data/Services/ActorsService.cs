@@ -31,12 +31,6 @@ namespace eTickets.Data.Services
             var result = await _context.Actors.ToListAsync();
             return result;
         }
-
-        public Actor GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Actor> GetByIdAsync(int id)
         {
             var result = await _context.Actors.FirstOrDefaultAsync(n => n.ActorId == id);
