@@ -31,9 +31,10 @@ namespace eTickets.Data.Base
             return result;
         }
 
-        public Task<Actor> UpdateAsync(int id, T entity)
+        public Task<T> UpdateAsync(int id, T entity)
         {
             throw new NotImplementedException();
         }
+
     }
 }
