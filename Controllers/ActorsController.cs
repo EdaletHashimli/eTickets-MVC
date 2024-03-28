@@ -51,7 +51,7 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id,[Bind("ActorId,FullName,ProfilePictureURL,Bio")] Actor actor)
+        public async Task<IActionResult> Edit(int id,[Bind("Id,FullName,ProfilePictureURL,Bio")] Actor actor)
         {
             if (!ModelState.IsValid)
             {
@@ -63,9 +63,9 @@ namespace eTickets.Controllers
         //Get: Actors/Delete/ByID
 
         [HttpPost]
-        public async Task<IActionResult> DeleteConfirmed(Actor actor)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await _service.DeleteAsync(actor);
+            await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
 
