@@ -1,6 +1,7 @@
 ﻿using eTickets.Data.Base;
 using eTickets.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 namespace eTickets.Data.Services
 {
@@ -8,6 +9,8 @@ namespace eTickets.Data.Services
     {
         private readonly eTicketDbContext _context;
 
-        public ActorsService(eTicketDbContext context): base(context) { }
+        public ActorsService(eTicketDbContext context): base(context) 
+        {
+        }
     }
 }

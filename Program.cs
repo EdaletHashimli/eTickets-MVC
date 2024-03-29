@@ -11,6 +11,7 @@ builder.Services.AddDbContext<eTicketDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("eTicketDbConnectionString")));
 
 builder.Services.AddScoped<IActorsService, ActorsService>();
+builder.Services.AddScoped<IProducersService, ProducersService>();
 
 var app = builder.Build();
 
